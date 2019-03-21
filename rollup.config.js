@@ -10,7 +10,6 @@ const name = 'Select';
 const path = 'dist/react-select';
 const globals = {
   classnames: 'classNames',
-  emotion: 'emotion',
   'prop-types': 'PropTypes',
   'react-dom': 'ReactDOM',
   'react-input-autosize': 'AutosizeInput',
@@ -28,7 +27,6 @@ const babelOptions = () => {
       '@babel/preset-flow'
     ],
     plugins: [
-      'emotion',
       '@babel/plugin-proposal-class-properties'
     ]
   };

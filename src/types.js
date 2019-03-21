@@ -44,7 +44,7 @@ export type PropsWithStyles = {
     property as the first argument, and the current props as the second argument.
     See the `styles` object for the properties available.
   */
-  getStyles: (string, any) => {},
+  // getStyles: (string, any) => {},
   theme: Theme,
 };
 

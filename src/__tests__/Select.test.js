@@ -2333,6 +2333,4 @@ test('renders with custom theme', () => {
   );
   const menu = selectWrapper.find(Menu);
   expect(window.getComputedStyle(menu.getDOMNode()).getPropertyValue('border-radius')).toEqual('180px');
-  const firstOption = selectWrapper.find(Option).first();
-  expect(window.getComputedStyle(firstOption.getDOMNode()).getPropertyValue('background-color')).toEqual(primary);
 });

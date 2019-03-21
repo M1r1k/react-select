@@ -5,7 +5,6 @@ import React, {
   type ElementRef,
   type Node,
 } from 'react';
-import { css } from 'emotion';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
@@ -233,27 +232,29 @@ export type MenuPlacerProps = MenuAndPlacerCommon & {
   children: ({ }) => Node,
 };
 
-function alignToControl(placement) {
-  const placementToCSSProp = { bottom: 'top', top: 'bottom' };
-  return placement ? placementToCSSProp[placement] : 'bottom';
-}
+// function alignToControl(placement) {
+//   const placementToCSSProp = { bottom: 'top', top: 'bottom' };
+//   return placement ? placementToCSSProp[placement] : 'bottom';
+// }
 const coercePlacement = p => (p === 'auto' ? 'bottom' : p);
 
 type MenuStateWithProps = MenuState & MenuProps;
 
 export const menuCSS = ({
-  placement,
-  theme: { borderRadius, spacing, colors },
+  // placement,
+  theme: { 
+    // borderRadius, spacing, colors 
+  },
 }: MenuStateWithProps) => ({
-  [alignToControl(placement)]: '100%',
-  backgroundColor: colors.neutral0,
-  borderRadius: borderRadius,
-  boxShadow: '0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1)',
-  marginBottom: spacing.menuGutter,
-  marginTop: spacing.menuGutter,
-  position: 'absolute',
-  width: '100%',
-  zIndex: 1,
+  // [alignToControl(placement)]: '100%',
+  // backgroundColor: colors.neutral0,
+  // borderRadius: borderRadius,
+  // boxShadow: '0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1)',
+  // marginBottom: spacing.menuGutter,
+  // marginTop: spacing.menuGutter,
+  // position: 'absolute',
+  // width: '100%',
+  // zIndex: 1,
 });
 
 // NOTE: internal only
@@ -314,10 +315,15 @@ export class MenuPlacer extends Component<MenuPlacerProps, MenuState> {
 
 const Menu = (props: MenuProps) => {
   const { children, className, cx, getStyles, innerRef, innerProps } = props;
-  const cn = cx(css(getStyles('menu', props)), { menu: true }, className);
+  const cn = cx('', { menu: true }, className);
 
   return (
-    <div className={cn} {...innerProps} ref={innerRef}>
+    <div 
+      className={cn}
+      {...innerProps}
+      ref={innerRef}
+      style={{ ...getStyles('menu', props) }}
+    >
       {children}
     </div>
   );
@@ -359,11 +365,10 @@ export const menuListCSS = ({
   WebkitOverflowScrolling: 'touch',
 });
 export const MenuList = (props: MenuListComponentProps) => {
-  const { children, className, cx, getStyles, isMulti, innerRef } = props;
+  const { children, className, cx, isMulti, innerRef } = props;
   return (
     <div
-      className={cx(
-        css(getStyles('menuList', props)),
+      className={cx('',
         {
           'menu-list': true,
           'menu-list--is-multi': isMulti,
@@ -402,11 +407,11 @@ export type NoticeProps = CommonProps & {
 };
 
 export const NoOptionsMessage = (props: NoticeProps) => {
-  const { children, className, cx, getStyles, innerProps } = props;
+  const { children, className, cx, innerProps } = props;
   return (
     <div
       className={cx(
-        css(getStyles('noOptionsMessage', props)),
+        '',
         {
           'menu-notice': true,
           'menu-notice--no-options': true,
@@ -424,11 +429,11 @@ NoOptionsMessage.defaultProps = {
 };
 
 export const LoadingMessage = (props: NoticeProps) => {
-  const { children, className, cx, getStyles, innerProps } = props;
+  const { children, className, cx, innerProps } = props;
   return (
     <div
       className={cx(
-        css(getStyles('loadingMessage', props)),
+        '',
         {
           'menu-notice': true,
           'menu-notice--loading': true,
@@ -500,7 +505,6 @@ export class MenuPortal extends Component<MenuPortalProps, MenuPortalState> {
       controlElement,
       menuPlacement,
       menuPosition: position,
-      getStyles,
     } = this.props;
     const isFixed = position === 'fixed';
 
@@ -517,7 +521,7 @@ export class MenuPortal extends Component<MenuPortalProps, MenuPortalState> {
 
     // same wrapper element whether fixed or portalled
     const menuWrapper = (
-      <div className={css(getStyles('menuPortal', state))}>{children}</div>
+      <div style={{ ...state }}>{children}</div>
     );
 
     return appendTo ? createPortal(menuWrapper, appendTo) : menuWrapper;

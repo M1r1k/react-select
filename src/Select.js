@@ -731,11 +731,11 @@ export default class Select extends Component<Props, State> {
     return {
       cx,
       clearValue,
-      getStyles,
       getValue,
       hasValue,
       isMulti,
       isRtl,
+      getStyles,
       options,
       selectOption,
       setValue,
@@ -779,7 +779,7 @@ export default class Select extends Component<Props, State> {
   };
   getStyles = (key: string, props: {}): {} => {
     const base = defaultStyles[key](props);
-    base.boxSizing = 'border-box';
+    // base.boxSizing = 'border-box';
     const custom = this.props.styles[key];
     return custom ? custom(base, props) : base;
   };
@@ -1422,7 +1422,6 @@ export default class Select extends Component<Props, State> {
         autoComplete="off"
         autoCorrect="off"
         cx={cx}
-        getStyles={this.getStyles}
         id={id}
         innerRef={this.getInputRef}
         isDisabled={isDisabled}
