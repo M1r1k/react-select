@@ -190,7 +190,7 @@ exports[`defaults - snapshot 1`] = `
           }
         >
           <div
-            className="css-10nd86i"
+            className=""
             onKeyDown={[Function]}
           >
             <Control
@@ -298,7 +298,7 @@ exports[`defaults - snapshot 1`] = `
               }
             >
               <div
-                className="css-vj8t7z"
+                className=""
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
               >
@@ -398,7 +398,7 @@ exports[`defaults - snapshot 1`] = `
                   }
                 >
                   <div
-                    className="css-1hwfws3"
+                    className=""
                   >
                     <Placeholder
                       clearValue={[Function]}
@@ -498,7 +498,7 @@ exports[`defaults - snapshot 1`] = `
                       }
                     >
                       <div
-                        className="css-1492t68"
+                        className=""
                       >
                         Select...
                       </div>
@@ -509,7 +509,6 @@ exports[`defaults - snapshot 1`] = `
                       autoComplete="off"
                       autoCorrect="off"
                       cx={[Function]}
-                      getStyles={[Function]}
                       id="react-select-2-input"
                       innerRef={[Function]}
                       isDisabled={false}
@@ -605,7 +604,7 @@ exports[`defaults - snapshot 1`] = `
                       value=""
                     >
                       <div
-                        className="css-1g6gooi"
+                        className=""
                       >
                         <AutosizeInput
                           aria-autocomplete="list"
@@ -788,7 +787,7 @@ exports[`defaults - snapshot 1`] = `
                   }
                 >
                   <div
-                    className="css-1wy0on6"
+                    className=""
                   >
                     <IndicatorSeparator
                       clearValue={[Function]}
@@ -887,7 +886,7 @@ exports[`defaults - snapshot 1`] = `
                       }
                     >
                       <span
-                        className="css-d8oujb"
+                        className=""
                       />
                     </IndicatorSeparator>
                     <DropdownIndicator
@@ -995,7 +994,7 @@ exports[`defaults - snapshot 1`] = `
                     >
                       <div
                         aria-hidden="true"
-                        className="css-1ep9fjw"
+                        className=""
                         onMouseDown={[Function]}
                         onTouchEnd={[Function]}
                       >
@@ -1005,7 +1004,6 @@ exports[`defaults - snapshot 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              className="css-19bqh2r"
                               focusable="false"
                               height={20}
                               viewBox="0 0 20 20"

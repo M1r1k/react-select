@@ -1,7 +1,5 @@
 // @flow
 import React, { type Node } from 'react';
-import { css, injectGlobal } from 'emotion';
-
 import type { CommonProps, Theme } from '../types';
 
 // ==============================
@@ -15,13 +13,6 @@ const Svg = ({ size, ...props }: { size: number }) => (
     viewBox="0 0 20 20"
     aria-hidden="true"
     focusable="false"
-    className={css({
-      display: 'inline-block',
-      fill: 'currentColor',
-      lineHeight: 1,
-      stroke: 'currentColor',
-      strokeWidth: 0,
-    })}
     {...props}
   />
 );
@@ -69,12 +60,11 @@ const baseCSS = ({
 
 export const dropdownIndicatorCSS = baseCSS;
 export const DropdownIndicator = (props: IndicatorProps) => {
-  const { children, className, cx, getStyles, innerProps } = props;
+  const { children, className, cx, innerProps } = props;
   return (
     <div
       {...innerProps}
-      className={cx(
-        css(getStyles('dropdownIndicator', props)),
+      className={cx('',
         {
           'indicator': true,
           'dropdown-indicator': true,
@@ -89,12 +79,11 @@ export const DropdownIndicator = (props: IndicatorProps) => {
 
 export const clearIndicatorCSS = baseCSS;
 export const ClearIndicator = (props: IndicatorProps) => {
-  const { children, className, cx, getStyles, innerProps } = props;
+  const { children, className, cx, innerProps } = props;
   return (
     <div
       {...innerProps}
-      className={cx(
-        css(getStyles('clearIndicator', props)),
+      className={cx('',
         {
           'indicator': true,
           'clear-indicator': true,
@@ -124,12 +113,12 @@ export const indicatorSeparatorCSS = ({
 });
 
 export const IndicatorSeparator = (props: IndicatorProps) => {
-  const { className, cx, getStyles, innerProps } = props;
+  const { className, cx, innerProps } = props;
   return (
     <span
       {...innerProps}
       className={cx(
-        css(getStyles('indicatorSeparator', props)),
+        '',
         { 'indicator-separator': true },
         className
       )}
@@ -141,7 +130,7 @@ export const IndicatorSeparator = (props: IndicatorProps) => {
 // Loading
 // ==============================
 
-const keyframesName = 'react-select-loading-indicator';
+// const keyframesName = 'react-select-loading-indicator';
 let keyframesInjected = false;
 
 export const loadingIndicatorCSS = ({
@@ -166,23 +155,9 @@ export const loadingIndicatorCSS = ({
 });
 
 type DotProps = { color: string, delay: number, offset: boolean };
-const LoadingDot = ({ color, delay, offset }: DotProps) => (
-  <span
-    className={css({
-      animationDuration: '1s',
-      animationDelay: `${delay}ms`,
-      animationIterationCount: 'infinite',
-      animationName: keyframesName,
-      animationTimingFunction: 'ease-in-out',
-      backgroundColor: color,
-      borderRadius: '1em',
-      display: 'inline-block',
-      marginLeft: offset ? '1em' : null,
-      height: '1em',
-      verticalAlign: 'top',
-      width: '1em',
-    })}
-  />
+// color, delay, offset
+const LoadingDot = ({}: DotProps) => (
+  <span />
 );
 
 export type LoadingIconProps = {
@@ -197,23 +172,22 @@ export type LoadingIconProps = {
   size: number,
 };
 export const LoadingIndicator = (props: LoadingIconProps) => {
-  const { className, cx, getStyles, innerProps, isFocused, isRtl, theme: { colors } } = props;
+  const { className, cx, innerProps, isFocused, isRtl, theme: { colors } } = props;
   const color = isFocused ? colors.neutral80 : colors.neutral20;
 
   if(!keyframesInjected) {
     // eslint-disable-next-line no-unused-expressions
-    injectGlobal`@keyframes ${keyframesName} {
-      0%, 80%, 100% { opacity: 0; }
-      40% { opacity: 1; }
-    };`;
+    // injectGlobal`@keyframes ${keyframesName} {
+    //   0%, 80%, 100% { opacity: 0; }
+    //   40% { opacity: 1; }
+    // };`;
     keyframesInjected = true;
   }
 
   return (
     <div
       {...innerProps}
-      className={cx(
-        css(getStyles('loadingIndicator', props)),
+      className={cx('',
         {
           'indicator': true,
           'loading-indicator': true,
