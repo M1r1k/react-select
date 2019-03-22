@@ -1,7 +1,7 @@
 {
-  "name": "react-select",
+  "name": "react-select-no-emotion",
   "version": "2.4.2",
-  "description": "A Select control built with and for ReactJS",
+  "description": "Remove CSS-in-JS (Emotion)",
   "main": "lib/index.js",
   "module": "dist/react-select.esm.js",
   "sideEffects": false,
@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JedWatson/react-select.git"
+    "url": "https://github.com/vkabish/react-select.git"
   },
   "dependencies": {
     "classnames": "^2.2.5",
